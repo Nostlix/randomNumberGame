@@ -4,7 +4,7 @@ settings = {
 	"min": 0, # Default minimu
 	"max": 10, # Default maximum
 	"tries": 5, # Default maximum tries
-	"caracters": 150 # Change this to adapt the maximal length of displayed messages
+	"caracters": 120 # Change this to adapt the maximal length of displayed messages
 }
 
 def displayMessage(message, returnToTheLine = False):
@@ -127,6 +127,8 @@ def secretNumberGame(min, max):
 			print("You failed... try again (attempt",str(totalTries)+"/",str(settings["tries"])+") ! | Write '000' to give up...")
 			if numberToFind > n: print("Tip: The number is bigger :)")
 			elif numberToFind < n: print("Tip: The number is smaller :D")
+			if totalTries + 1 == settings["tries"]:
+				writeSlowly("\nBe careful ! LAST TRY\n")
 			tryToGetTheNumber(totalTries)
 	tryToGetTheNumber(totalTries)
 
